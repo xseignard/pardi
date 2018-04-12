@@ -1,0 +1,6 @@
+#define SECS_PER_MIN (60UL)
+#define SECS_PER_HOUR (3600UL)
+#define SECS_PER_DAY (SECS_PER_HOUR * 24L)
+#define numberOfSeconds(_t_) (_t_ % SECS_PER_MIN)
+#define numberOfMinutes(_t_) ((_t_ / SECS_PER_MIN) % SECS_PER_MIN)
+#define numberOfHours(_t_) ((_t_ % SECS_PER_DAY) / SECS_PER_HOUR)
