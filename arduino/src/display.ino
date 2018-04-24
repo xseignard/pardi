@@ -1,25 +1,28 @@
 #include <utils.h>
 
-void initDisplay() {
+void initDisplay()
+{
 	dmd.setBrightness(255);
 	dmd.selectFont(fixednums7x15);
 	dmd.begin();
 	blinkDisplay();
 }
 
-void blinkDisplay() {
-	dmd.setBrightness(100);
+void blinkDisplay()
+{
+	dmd.setBrightness(127);
 	dmd.fillScreen(true);
-	delay(500);
+	delay(1000);
 	dmd.clearScreen();
-	delay(500);
+	delay(1000);
 	dmd.fillScreen(true);
-	delay(500);
+	delay(1000);
 	dmd.clearScreen();
 	dmd.setBrightness(255);
 }
 
-void updateDisplay() {
+void updateDisplay()
+{
 	int hours = numberOfHours(currentTime);
 	int minutes = numberOfMinutes(currentTime);
 	int seconds = numberOfSeconds(currentTime);
@@ -28,7 +31,8 @@ void updateDisplay() {
 	dmd.drawString(0, 2, timeToDisplay);
 }
 
-String timeToString(int hours, int minutes, int seconds) {
+String timeToString(int hours, int minutes, int seconds)
+{
 	String str = "";
 	str += print(hours);
 	str += ":";
@@ -38,11 +42,15 @@ String timeToString(int hours, int minutes, int seconds) {
 	return str;
 }
 
-String print(byte digits){
+String print(byte digits)
+{
 	String result = "";
-	if(digits < 10) {
+	if (digits < 10)
+	{
 		result += "0";
 		result += digits;
-	} else result += digits;
+	}
+	else
+		result += digits;
 	return result;
 }

@@ -1,0 +1,21 @@
+.mui-container {
+	margin-top: 15px;
+}
+
+.mui-panel {
+	display: flex;
+}
+
+.mui-container span {
+	padding-top: 20px;
+	margin: 0 10px;
+}
+
+.mui-textfield {
+	flex: 1;
+}
+
+#update {
+	flex: 2;
+	margin: 6px 10px;
+}

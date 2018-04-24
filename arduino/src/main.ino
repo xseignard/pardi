@@ -27,6 +27,7 @@ const long M = 15L;
 const long S = 00L;
 const unsigned long BEGINNING_TIME = H * 3600L + M * 60L + S;
 unsigned long currentTime = BEGINNING_TIME;
+unsigned long loopTimeStamp = BEGINNING_TIME;
 int step = 1;
 
 // flags
@@ -49,15 +50,15 @@ const unsigned int intervals[INTERVAL_SIZE] = {
 	1500,
 	2000,
 	3000,
-	5000
-};
+	5000};
 unsigned int displayInterval = intervals[currentIntervalIndex];
 
 // changing interval timing
 elapsedMillis intervalElapsed;
 unsigned int lerpInterval = 1000;
 
-enum Mode {
+enum Mode
+{
 	NORMAL,
 	PAUSE,
 	INCREASE,
@@ -68,7 +69,8 @@ enum Mode {
 };
 Mode mode = PAUSE;
 
-void setup() {
+void setup()
+{
 	Serial.begin(115200);
 	randomSeed(analogRead(0));
 	initDisplay();
@@ -77,10 +79,12 @@ void setup() {
 	delay(1000);
 }
 
-void loop() {
+void loop()
+{
 	handleWii();
 	updateInterval();
-	if (timeElapsed > displayInterval && mode != PAUSE) {
+	if (timeElapsed > displayInterval && mode != PAUSE)
+	{
 		updateTime();
 		updateDisplay();
 		timeElapsed = 0;

@@ -25,19 +25,14 @@ void updateInterval() {
 	}
 }
 void updateTime() {
-	// clockwise / counterclockwise
-	if (forward) {
-		currentTime += step;
+	if (mode == LOOP) {
+		currentTime = forward ? currentTime + 1 : currentTime - 1;
 		if (
-			mode == LOOP &&
-			numberOfSeconds(currentTime) == 0
-		) currentTime -= 60;
+			(forward && currentTime - loopTimeStamp > 3) ||
+			(!forward && loopTimeStamp - currentTime > 3)
+		) {
+			currentTime = loopTimeStamp;
+		}
 	}
-	else {
-		currentTime -= step;
-		if (
-			mode == LOOP &&
-			numberOfSeconds(currentTime) == 59
-		) currentTime += 60;
-	}
+	else currentTime = forward ? currentTime + 1 : currentTime - 1;
 }

@@ -2,3 +2,5 @@
 .piolibdeps
 .vscode
 .DS_Store
+.vscode
+node_modules
